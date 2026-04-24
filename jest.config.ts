@@ -9,6 +9,7 @@ const config: Config = {
   setupFiles: ['dotenv/config'],
   forceExit: true,
   detectOpenHandles: true,
+  transformIgnorePatterns: ['/node_modules/(?!uuid)'],
 };
 
 module.exports = config;

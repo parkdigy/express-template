@@ -4,7 +4,7 @@ import './init';
 
 import express from 'express';
 import session from 'express-session';
-import RedisStore from 'connect-redis';
+import { RedisStore } from 'connect-redis';
 import { createClient } from 'redis';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
