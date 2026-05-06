@@ -70,7 +70,6 @@ exec('git branch', (err, stdout, stderr) => {
   }
 
   let currentBranch = undefined;
-  let commonBranchExists = false;
 
   stdout.split('\n').find((branch) => {
     if (branch.indexOf('* ') === 0) {
@@ -81,6 +80,11 @@ exec('git branch', (err, stdout, stderr) => {
 
   if (!currentBranch) {
     ll('Cannot find current branch');
+    return;
+  }
+
+  if (mode === 'production' && currentBranch !== 'main' && currentBranch !== 'master') {
+    ll('production 배포는 main 또는 master 브랜치에서만 가능합니다.');
     return;
   }
 
